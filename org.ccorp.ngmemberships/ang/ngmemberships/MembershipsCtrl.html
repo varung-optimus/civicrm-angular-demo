@@ -1,0 +1,46 @@
+<div class="crm-container">
+  <div crm-ui-debug="myContact"></div>
+
+  <form name="membershipForm" crm-ui-id-scope>
+
+    <div class="help">
+      <p>{{ts('This is an auto-generated skeletal page.')}}</p>
+
+      <p>{{ts('To view more debugging information, edit the URL and include "?angularDebug=1".')}}</p>
+    </div>
+
+    <div crm-ui-accordion="{title: ts('Current Memberships')}">
+      <div class="crm-block">
+        <div class="crm-group">
+          <h1>{{varun}}</h1>
+          <table class="table">
+            <thead>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th>
+                Start Date
+              </th>
+              <th>
+                End Date
+              </th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="membership in myContact.values | filter:membershipForm.startDate">
+                <td>{{membership["api.Contact.get"].values[0].sort_name}}</td>
+                <td>{{membership.membership_name}}</td>
+                <td>{{membership.start_date}}</td>
+                <td>{{membership.end_date}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</div>
